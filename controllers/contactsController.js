@@ -77,4 +77,18 @@ contactsController.updateContact = async (req, res) => {
   }
 };
 
+contactsController.deleteContact = async (req, res) => {
+  try {
+    const contactId = new ObjectId(req.params.id);
+    const result = await mongodb.getDb().collection('contacts').deleteOne({ _id: contactId });
+    if (result.deletedCount === 0) {
+      return res.status(404).json({ error: "Contact not found" });
+    }
+    res.status(204).send();
+  } catch (err) {
+    console.error("Error deleting contact:", err);
+    res.status(500).json({ error: "Failed to delete contact" });
+  }
+};
+
 module.exports = contactsController;
