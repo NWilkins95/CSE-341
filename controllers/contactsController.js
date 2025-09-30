@@ -39,6 +39,7 @@ contactsController.createNewContact = async (req, res) => {
       birthday: req.body.birthday
     };
 
+    // make sure all fields are provided
     if (!newContact.firstName || !newContact.lastName || !newContact.email || !newContact.favoriteColor || !newContact.birthday) {
       return res.status(400).json({ error: "All fields are required" });
     }
@@ -62,6 +63,7 @@ contactsController.updateContact = async (req, res) => {
       birthday: req.body.birthday
     };
 
+    // Make sure all fields are provided
     if (!updatedContact.firstName || !updatedContact.lastName || !updatedContact.email || !updatedContact.favoriteColor || !updatedContact.birthday) {
       return res.status(400).json({ error: "All fields are required" });
     }
