@@ -8,4 +8,10 @@ router.get('/', contactsController.getAll);
 // Route to get a single contact by ID
 router.get('/:id', contactsController.getSingle);
 
+// Route to create a new contact
+router.post('/', contactsController.createNewContact);
+
+// Route to update an existing contact by ID
+router.put('/:id', contactsController.updateContact);
+
 module.exports = router;

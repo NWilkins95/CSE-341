@@ -29,7 +29,7 @@ contactsController.getSingle = async (req, res) => {
   }
 };
 
-contactsController.createContact = async (req, res) => {
+contactsController.createNewContact = async (req, res) => {
   try {
     const newContact = {
       firstName: req.body.firstName,
@@ -44,10 +44,36 @@ contactsController.createContact = async (req, res) => {
     }
 
     const result = await mongodb.getDb().collection('contacts').insertOne(newContact);
-    res.status(201).json(result);
+    res.status(201).json({id: result.insertedId});
   } catch (err) {
     console.error("Error creating contact:", err);
     res.status(500).json({ error: "Failed to create contact" });
+  }
+};
+
+contactsController.updateContact = async (req, res) => {
+  try {
+    const contactId = new ObjectId(req.params.id);
+    const updatedContact = {
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      favoriteColor: req.body.favoriteColor,
+      birthday: req.body.birthday
+    };
+
+    if (!updatedContact.firstName || !updatedContact.lastName || !updatedContact.email || !updatedContact.favoriteColor || !updatedContact.birthday) {
+      return res.status(400).json({ error: "All fields are required" });
+    }
+
+    const result = await mongodb.getDb().collection('contacts').updateOne({ _id: contactId }, { $set: updatedContact });
+    if (result.matchedCount === 0) {
+      return res.status(404).json({ error: "Contact not found" });
+    }
+    res.status(204).send();
+  } catch (err) {
+    console.error("Error updating contact:", err);
+    res.status(500).json({ error: "Failed to update contact" });
   }
 };
 
