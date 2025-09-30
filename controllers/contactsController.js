@@ -29,4 +29,26 @@ contactsController.getSingle = async (req, res) => {
   }
 };
 
+contactsController.createContact = async (req, res) => {
+  try {
+    const newContact = {
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      favoriteColor: req.body.favoriteColor,
+      birthday: req.body.birthday
+    };
+
+    if (!newContact.firstName || !newContact.lastName || !newContact.email || !newContact.favoriteColor || !newContact.birthday) {
+      return res.status(400).json({ error: "All fields are required" });
+    }
+
+    const result = await mongodb.getDb().collection('contacts').insertOne(newContact);
+    res.status(201).json(result);
+  } catch (err) {
+    console.error("Error creating contact:", err);
+    res.status(500).json({ error: "Failed to create contact" });
+  }
+};
+
 module.exports = contactsController;
