@@ -7,6 +7,32 @@ GET http://localhost:3000/contacts/68d4366859ec90c142035cfe
 GET http://localhost:3000/contacts/68d438b459ec90c142035cff
 ###
 GET http://localhost:3000/contacts/68d43caa59ec90c142035d00
+###
+POST http://localhost:3000/contacts
+Content-Type: application/json
+
+{
+    "firstName": "Kristie",
+    "lastName": "Wilkins",
+    "email": "kristie.wilkins@example.com",
+    "favoriteColor": "Blue",
+    "birthday": "01/21/1972"
+}
+###
+PUT http://localhost:3000/contacts/68d43caa59ec90c142035d00
+Content-Type: application/json
+
+{
+    "firstName": "Archer",
+    "lastName": "Wilkins",
+    "email": "archer.wilkins@example.com",
+    "favoriteColor": "Blue",
+    "birthday": "06/03/2024"
+}
+###
+DELETE http://localhost:3000/contacts/68dc4c359186cef2d60dba74
+###
+
 
 // PRODUCTION
 ###
@@ -17,3 +43,27 @@ GET https://cse-341-b5tl.onrender.com/contacts/68d4366859ec90c142035cfe
 GET https://cse-341-b5tl.onrender.com/contacts/68d438b459ec90c142035cff
 ###
 GET https://cse-341-b5tl.onrender.com/contacts/68d43caa59ec90c142035d00
+###
+POST https://cse-341-b5tl.onrender.com/contacts
+Content-Type: application/json
+
+{
+    "firstName": "Kristie",
+    "lastName": "Wilkins",
+    "email": "kristie.wilkins@example.com",
+    "favoriteColor": "Blue",
+    "birthday": "01/21/1972"
+}
+###
+PUT https://cse-341-b5tl.onrender.com/contacts/68d43caa59ec90c142035d00
+Content-Type: application/json
+
+{
+    "firstName": "Archer",
+    "lastName": "Wilkins",
+    "email": "archer.wilkins@example.com",
+    "favoriteColor": "Red",
+    "birthday": "06/03/2024"
+}
+###
+DELETE https://cse-341-b5tl.onrender.com/contacts/68dc4c359186cef2d60dba74
