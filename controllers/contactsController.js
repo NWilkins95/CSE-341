@@ -86,7 +86,7 @@ contactsController.deleteContact = async (req, res) => {
     if (result.deletedCount === 0) {
       return res.status(404).json({ error: "Contact not found" });
     }
-    res.status(204).send();
+    res.status(200).send();
   } catch (err) {
     console.error("Error deleting contact:", err);
     res.status(500).json({ error: "Failed to delete contact" });
