@@ -5,7 +5,7 @@
     "description": "A simple API to manage a contact list with CRUD operations",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "https://cse-341-b5tl.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
@@ -13,7 +13,7 @@
   "paths": {
     "/api-docs": {
       "get": {
-        "description": "Serves the Swagger API documentation in JSON format.",
+        "description": "Retrieve the API documentation in JSON format",
         "responses": {
           "default": {
             "description": ""
@@ -23,7 +23,7 @@
     },
     "/contacts/": {
       "get": {
-        "description": "Gets all contacts from the database.",
+        "description": "Retrieve a list of all contacts",
         "produces": [
           "application/json"
         ],
@@ -37,7 +37,7 @@
         }
       },
       "post": {
-        "description": "Creates a new contact in the database.",
+        "description": "Create a new contact",
         "parameters": [
           {
             "name": "body",
@@ -79,7 +79,7 @@
     },
     "/contacts/{id}": {
       "get": {
-        "description": "Gets a specific contact by ID from the database.",
+        "description": "Retrieve a specific contact by ID",
         "produces": [
           "application/json"
         ],
@@ -104,7 +104,7 @@
         }
       },
       "put": {
-        "description": "Updates a specific contact by ID in the database.",
+        "description": "Update a specific contact by ID",
         "parameters": [
           {
             "name": "id",
@@ -153,7 +153,7 @@
         }
       },
       "delete": {
-        "description": "Deletes a specific contact by ID from the database.",
+        "description": "Delete a specific contact by ID",
         "parameters": [
           {
             "name": "id",
