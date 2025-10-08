@@ -5,7 +5,7 @@
     "description": "A simple API to manage a contact list with CRUD operations",
     "version": "1.0.0"
   },
-  "host": "https://cse-341-b5tl.onrender.com",
+  "host": "cse-341-b5tl.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
@@ -13,7 +13,7 @@
   "paths": {
     "/api-docs": {
       "get": {
-        "description": "Retrieve the API documentation in JSON format",
+        "description": "Retrieve API documentation",
         "responses": {
           "default": {
             "description": ""
@@ -23,7 +23,7 @@
     },
     "/contacts/": {
       "get": {
-        "description": "Retrieve a list of all contacts",
+        "description": "Retrieve all contacts",
         "produces": [
           "application/json"
         ],
@@ -79,7 +79,7 @@
     },
     "/contacts/{id}": {
       "get": {
-        "description": "Retrieve a specific contact by ID",
+        "description": "Retrieve a contact by ID",
         "produces": [
           "application/json"
         ],
@@ -104,7 +104,7 @@
         }
       },
       "put": {
-        "description": "Update a specific contact by ID",
+        "description": "Update a contact by ID",
         "parameters": [
           {
             "name": "id",
@@ -153,7 +153,7 @@
         }
       },
       "delete": {
-        "description": "Delete a specific contact by ID",
+        "description": "Delete a contact by ID",
         "parameters": [
           {
             "name": "id",
