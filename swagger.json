@@ -8,12 +8,12 @@
   "host": "localhost:3000",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/api-docs": {
       "get": {
-        "description": "Serves the Swagger API documentation",
+        "description": "Serves the Swagger API documentation in JSON format.",
         "responses": {
           "default": {
             "description": ""
@@ -23,7 +23,7 @@
     },
     "/contacts/": {
       "get": {
-        "description": "Gets all contacts from the database",
+        "description": "Gets all contacts from the database.",
         "produces": [
           "application/json"
         ],
@@ -37,7 +37,7 @@
         }
       },
       "post": {
-        "description": "Creates a new contact in the database",
+        "description": "Creates a new contact in the database.",
         "parameters": [
           {
             "name": "body",
@@ -79,7 +79,7 @@
     },
     "/contacts/{id}": {
       "get": {
-        "description": "Retrieve a single contact by ID",
+        "description": "Gets a specific contact by ID from the database.",
         "produces": [
           "application/json"
         ],
@@ -104,7 +104,7 @@
         }
       },
       "put": {
-        "description": "Updates an existing contact by ID",
+        "description": "Updates a specific contact by ID in the database.",
         "parameters": [
           {
             "name": "id",
@@ -153,7 +153,7 @@
         }
       },
       "delete": {
-        "description": "Deletes a contact by ID",
+        "description": "Deletes a specific contact by ID from the database.",
         "parameters": [
           {
             "name": "id",
